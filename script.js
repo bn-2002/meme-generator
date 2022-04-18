@@ -1,30 +1,46 @@
-// const canvas = document.querySelector('.canvas');
-// const ctx = canvas.getContext("2d");
-// const img = document.querySelector('.img');
-
-// fetch('https://api.imgflip.com/get_memes')
-// .then(response => response.json())
-// .then(response => {
-//     img.src = response.data.memes[Math.floor(Math.random()*(101))].url;
-// });
-
 const topText = document.getElementById("top-text");
 const bottomText = document.getElementById("bottom-text");
 const imageFileInput = document.getElementById("image-file-input");
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+const randomMemeBtn = document.querySelector('.random-meme-button');
 let image;
 let renderableHeight, renderableWidth,xStart,yStart;
 let yOffset;
+let randomMemeUrl;
 
+/////////////////render random meme image by click
+randomMemeBtn.addEventListener('click', async function() {
+    await getRandomMemeUrl();
+    image = new Image();
+    image.src = randomMemeUrl;
+    image.addEventListener('load',function() {
+      updateMeme(canvas,image,topText,bottomText);
+    },{once:true});
+})
 
-const updateMeme = function () {
+/////////////get random meme from api
+const getRandomMemeUrl = async function() {
+    try {
+        await fetch('https://api.imgflip.com/get_memes')
+        .then(response => response.json())
+        .then(response => {
+            randomMemeUrl =  response.data.memes[Math.floor(Math.random()*(101))].url;
+        });    
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+/////////////updte meme canvas
+const updateMeme = function (canvas,image,topText,bottomText) {
     canvas.width = 800;
     canvas.height = 600;
     fitImageOn(canvas,image);
     const fontSize = Math.floor(renderableWidth/10);
     yOffset =renderableHeight/4;
-    ////Text
+
+    /////////////text styles
     ctx.strokeStyle = 'black';
     ctx.lineWidth = Math.floor(fontSize/10);
     ctx.fillStyle = 'white';
@@ -42,7 +58,7 @@ const updateMeme = function () {
     ctx.fillText(bottomText.value,renderableWidth/2,renderableHeight - yOffset)
 };
 
-
+///////////fit image size
 const fitImageOn = function(drawCanvas,imageObj) {
 	const imageAspectRatio = imageObj.width / imageObj.height;
 	const canvasAspectRatio = drawCanvas.width /drawCanvas.height;
@@ -75,30 +91,24 @@ const fitImageOn = function(drawCanvas,imageObj) {
 	ctx.drawImage(imageObj,xStart,yStart,renderableWidth,renderableHeight);
 };
 
+///////////////change image of meme by uploading file
 imageFileInput.addEventListener("change", function (e) {
   const inputImageDataUrl = URL.createObjectURL(e.target.files[0]);
-  console.log(inputImageDataUrl);
   image = new Image();
   image.src = inputImageDataUrl;
   image.addEventListener('load',function() {
-    updateMeme();
-  },{once:true})
+    updateMeme(canvas,image,topText,bottomText);
+  },{once:true});
 });
 
-const updateTopText = function() {
-    ctx.textBaseLine = 'top';
-    ctx.strokeText('',renderableWidth/2,yOffset);
-    ctx.fillText('',renderableWidth/2,yOffset);
-    ctx.strokeText(topText.value,renderableWidth/2,yOffset);
-    ctx.fillText(topText.value,renderableWidth/2,yOffset);
-}
-
+/////////update top text
 topText.addEventListener('keyup',() => {
-    updateMeme();
+    updateMeme(canvas,image,topText,bottomText);
 });
 
+/////////update bottom text
 bottomText.addEventListener('keyup',() => {
-    updateMeme();
+    updateMeme(canvas,image,topText,bottomText);
 });
 
 
