@@ -1,8 +1,38 @@
-/* .canvas {
-    border:3px red solid;
-} */
+@import url('http://fonts.googleapis.com/css?family=Kavoon');
 
-.img {
-    width:500px;
+.container {
+    display:flex;
+    flex-direction:column;
+    margin:0 auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.container>* {
+    margin:8px;
+}
+
+input {
+    padding:5px;
+    border-radius: 3px;
+}
+
+input[type="file"] {
+    cursor: pointer;
+}
+
+input[type="text"] {
+    outline:none;
+    border:none;
+    border:1px black solid;
+    min-width:50px;
+    max-width:300px;
+    width:55%;
+}
+
+#canvas {
+    width:50%;
     height:500px;
 }
