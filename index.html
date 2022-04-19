@@ -29,9 +29,15 @@
     <div class="container">
       <div class="items">
         <label>Top text</label>
-        <input id="top-text" type="text" />
+        <div class="text-tools-container">
+          <input id="top-text" type="text"/>
+          <input class="color-picker1" type="color">
+        </div>
         <label>Bottom text</label>
-        <input id="bottom-text" type="text" />
+        <div class="text-tools-container">
+          <input id="bottom-text" type="text" />
+          <input class="color-picker2" type="color">
+        </div>
         <button id="save-canvas-button">save as png</button>
       </div>
        <canvas id="c"></canvas>
@@ -42,6 +48,9 @@
 
 
 <!-- TODO
-change color and font size
+change font size and stroke color and font-family
 dark/light mode
-responsive -->
+responsive 
+add slider handler
+refactor codes
+-->

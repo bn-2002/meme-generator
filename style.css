@@ -62,12 +62,23 @@ header h1,h2 {
   margin:10px;
 }
 
+.text-tools-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.text-tools-container input[type="color"] {
+  cursor:pointer;
+  border:none;
+  outline:none;
+}
+
 .container > * {
   margin: 8px;
 }
 
 input {
-  padding: 5px;
+  padding: 1px 5px;
   border-radius: 3px;
 }
 
@@ -78,10 +89,11 @@ input[type="file"] {
 input[type="text"] {
   outline: none;
   border: none;
-  border: 1px black solid;
-  min-width: 100px;
+  font-size:14px;
+  font-weight: 600;
   max-width: 300px;
   width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .slider-title {
@@ -162,6 +174,7 @@ span {
   cursor: pointer;
   padding:8px;
   border-radius: 5px;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
 
 #save-canvas-button {
@@ -173,4 +186,5 @@ span {
   outline:none;
   background-color: #de4141;
   font-size: 15px;
+  box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
