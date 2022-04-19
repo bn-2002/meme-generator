@@ -1,15 +1,17 @@
 const imageFileInput = document.getElementById("image-file-input");
 const topTextInput = document.getElementById("top-text");
 const bottomTextInput = document.getElementById("bottom-text");
-const randomMemeBtn = document.querySelector('.random-meme-button');
+const randomMemeBtn = document.querySelector('.random-meme-label');
+const saveCanvasBtn = document.querySelector('#save-canvas-button');
 const slider = document.querySelector('.slider');
-const slides = slider.children;
 const canvas = new fabric.Canvas('c');
 let topText,bottomText,img;
 let imgWidth,imgHeight,canvasWidth,canvasHeight;
 let randomMemeUrl;
 let popularMemes = [];
-
+let maxScrollLeft;
+let slides;
+const c = document.querySelector('#c');
 
 const getPopularMemes = async function() {
     try {
@@ -23,9 +25,6 @@ const getPopularMemes = async function() {
     }
 }
 
-getPopularMemes();
-
-
 const updateMemeCanvas = function(url,topTxt,bottomTxt) {
     canvas.clear();
     addTopText(topTxt);
@@ -33,7 +32,7 @@ const updateMemeCanvas = function(url,topTxt,bottomTxt) {
     addImage(url);
 }
 
-const addImage = function(url) {
+const addImage = function(url){
     fabric.Image.fromURL(url,function(image) {
         canvas.setDimensions({width:800,height:500});
         fitImageSize (image);
@@ -42,8 +41,9 @@ const addImage = function(url) {
         image.lockMovementX = true; 
         image.lockMovementY = true;
         image.selectable = false;
+        img.setAttribute("crossOrigin",'Anonymous')
         canvas.sendToBack(image);
-    })    
+    },{crossOrigin: 'anonymous'})    
 }
 
 const fitImageSize = function(image) {
@@ -136,10 +136,19 @@ randomMemeBtn.addEventListener('click', async function() {
     },{once:true});
 })
 
-
-
-
-const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+const renderPopularMemes = async function() {
+    await getPopularMemes();
+    console.log(popularMemes);
+    popularMemes.forEach(meme => {
+        const markUp = `<div data-id=${meme.id} class="slider-item">
+        <img alt="" src=${meme.url}>
+        <span>${meme.name}</span>
+       </div>`;
+       slider.insertAdjacentHTML('afterbegin',markUp);
+    });
+    maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+    slides = slider.children;
+}
 
 /////////////////////////////slider autoplay
 function autoPlay(slider,maxScrollLeft) {
@@ -169,7 +178,28 @@ let play = setInterval(function() {
     autoPlay(slider,maxScrollLeft);
 },50);
 
+saveCanvasBtn.addEventListener('click',function() {
+    c.toBlob(function(blob){
+        saveAs(blob,"picture.png","image/png");
+    },);
+});
 
-pauseSlider(slider,slides,maxScrollLeft);
+const selectFromPopularMemes = function() {
+    document.querySelectorAll('.slider-item').forEach(selectedMeme => {
+        selectedMeme.addEventListener('click',()=> {
+            popularMemes.forEach(popularMeme => {
+               if (popularMeme.id === selectedMeme.getAttribute('data-id')) {
+                   updateMemeCanvas(popularMeme.url,topTextInput.value,bottomTextInput.value)
+               }
+            })
+        })
+    })
+}
 
+const init = async function() {
+    await renderPopularMemes();
+    pauseSlider(slider,slides,maxScrollLeft);
+    selectFromPopularMemes();
+}
 
+init();
