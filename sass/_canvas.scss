@@ -50,6 +50,7 @@
         -webkit-appearance: none;
         border: none;
         outline: none;
+        isolation: isolate;
       }
 
       .text-font-size {
