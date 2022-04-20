@@ -1,0 +1,85 @@
+header {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+  }
+  
+  header h1,
+  h2 {
+    text-align: center;
+    z-index: 2;
+    font-weight: 900;
+    color: #ff4a4a;
+  }
+
+  
+  .labels > * {
+    margin: 10px;
+  }
+
+  
+
+  input {
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+  
+  input[type="file"] {
+    cursor: pointer;
+  }
+  
+  input[type="text"] {
+    outline: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding:5px;
+  }
+  
+
+  #image-file-input {
+    display: none;
+    border-radius: 5px;
+  }
+  
+  .upload-file-label,
+  .random-meme-label {
+    background-color: #de4141;
+    color: white;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: rgb(255, 255, 255) 0px 0px 0px 3px;
+  }
+
+  @media screen and (max-width:439px) { 
+    header {
+      padding:5px;
+      h1 {
+        font-size:22px;
+      };
+      h2 {
+        font-size:18px;
+      }    
+    }
+   };  
+
+
+   @media screen and (max-width:310px) {
+    .labels>* {
+      display: flex;
+      flex-direction: row;
+    }
+    .labels > * {
+      margin:20px;
+    }
+   }

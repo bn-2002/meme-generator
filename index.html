@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/main.css" />
     <link
       rel="icon"
       type="image/png"
@@ -51,22 +51,25 @@
         <label>Top text</label>
         <div class="text-tools-container">
           <input id="top-text" type="text" />
-          <input class="top-text-color-picker" value="#ffffff" type="color" />
-          <input
-            class="top-text-font-size text-font-size"
-            type="number"
-            value="55"
-          />
-          <input
-            class="top-text-stroke-color-picker"
-            value="#000000"
-            type="color"
-          />
+          <div class="tools">
+            <input class="top-text-color-picker" value="#ffffff" type="color" />
+            <input
+              class="top-text-font-size text-font-size"
+              type="number"
+              value="55"
+            />
+            <input
+              class="top-text-stroke-color-picker"
+              value="#000000"
+              type="color"
+            />  
+          </div>
         </div>
         <label>Bottom text</label>
         <div class="text-tools-container">
           <input id="bottom-text" type="text" />
-          <input
+          <div class="tools">
+            <input
             class="bottom-text-color-picker"
             value="#ffffff"
             type="color"
@@ -81,6 +84,7 @@
             value="#000000"
             type="color"
           />
+          </div>
         </div>
         <button id="save-canvas-button">save as png</button>
       </div>
@@ -91,7 +95,6 @@
 
 <!-- TODO
 dark/light mode
-responsive 
 add slider handler
 refactor codes
 refactor random meme function

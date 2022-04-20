@@ -1,0 +1,37 @@
+@import url("http://fonts.googleapis.com/css?family=Kavoon");
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+body {
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  background-color: #000000; 
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+
+*::-webkit-scrollbar {
+    width: 3px;
+    border-radius: 0.1rem;
+    height: 5px;
+    scroll-behavior: smooth !important;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background-color: #c9ada7;
+    border-radius: 10px;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #9a8c98;
+    border-radius: 10px;
+  }
+  

@@ -1,0 +1,53 @@
+.slider-title {
+    margin: 5px auto;
+    text-align: center;
+    padding: 10px;
+    width: 95%;
+    color: #ff4a4a;
+  }
+  
+  .slider {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height: 250px;
+    margin: 0px auto;
+    width: 95%;
+    background-color: #000000;
+    font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  }
+  
+  .slider > * {
+    margin: 5px;
+  }
+  
+  .slider-item {
+    margin: 15px;
+    max-width: 10rem;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    justify-content: center;
+    cursor: pointer;
+
+    img {
+        object-fit: cover;
+        height: 70%;
+        border-radius: 5px;
+      }
+      
+      span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        margin: 5px;
+        color:#ffffff;
+      }
+    
+  }
+  
+  
