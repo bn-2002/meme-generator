@@ -8,12 +8,14 @@ const colorPicker1 = document.querySelector(".top-text-color-picker");
 const colorPicker2 = document.querySelector(".bottom-text-color-picker");
 const fontSize1 = document.querySelector(".top-text-font-size");
 const fontSize2 = document.querySelector(".bottom-text-font-size");
+const arrowLeft = document.querySelector(".arrow-left");
+const arrowRight = document.querySelector(".arrow-right");
 const strokeColorPicker1 = document.querySelector(".top-text-stroke-color-picker");
 const strokeColorPicker2 = document.querySelector(".bottom-text-stroke-color-picker");
 const c = document.querySelector("#c");
-const canvas = new fabric.Canvas("c",{
-  height:500,
-  width:700,
+const canvas = new fabric.Canvas("c", {
+  height: 500,
+  width: 700,
 });
 let imgWidth, imgHeight, canvasWidth, canvasHeight;
 let topText, bottomText, img;
@@ -37,7 +39,7 @@ const getPopularMemes = async function () {
   }
 };
 
-const updateMemeCanvas = function (url,topTxt,bottomTxt) {
+const updateMemeCanvas = function (url, topTxt, bottomTxt) {
   canvas.clear();
   addTopText(topTxt, topTextColor, topTextFontSize, topTextStrokeColor);
   addBottomText(
@@ -53,7 +55,6 @@ const addImage = function (url) {
   fabric.Image.fromURL(
     url,
     function (image) {
-
       fitImageSize(image);
       canvas.add(image);
       image.center();
@@ -201,7 +202,7 @@ const renderPopularMemes = async function () {
         <img alt="" src=${meme.url}>
         <span>${meme.name}</span>
        </div>`;
-    slider.insertAdjacentHTML("afterbegin", markUp);
+    slider.insertAdjacentHTML("beforeend", markUp);
   });
   maxScrollLeft = slider.scrollWidth - slider.clientWidth;
   slides = slider.children;
@@ -320,7 +321,21 @@ const init = async function () {
   await renderPopularMemes();
   pauseSlider(slider, slides, maxScrollLeft);
   selectFromPopularMemes();
-
 };
 
 init();
+
+const arrowLeftMove = function (s,arrowL) {
+  arrowL.addEventListener("click", () => {
+    s.scrollLeft -= 125;
+  });
+};
+
+const arrowRightMove = function (s,arrowR) {
+  arrowR.addEventListener("click", () => {
+    s.scrollLeft += 125;
+  });
+};
+
+arrowLeftMove(slider, arrowLeft);
+arrowRightMove(slider, arrowRight);

@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/main.css" />
     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
       rel="icon"
       type="image/png"
       href="https://iconape.com/wp-content/files/gf/155577/png/troll-face-logo.png"
@@ -33,6 +37,7 @@
     <script defer src="script.js"></script>
   </head>
   <body>
+
     <header>
       <h1>Make your own meme</h1>
       <h2>Easily add text to images or memes</h2>
@@ -44,8 +49,15 @@
         <label class="random-meme-label">random meme</label>
       </div>
     </header>
-    <h3 class="slider-title">pick from popular memes</h3>
-    <div class="popular-memes slider"></div>
+
+    <div class="slider-container">
+      <h3 class="slider-title">pick from popular memes</h3>
+      <i class="arrow-left arrow fa fa-arrow-left" id="slide-left"></i>
+      <div class="popular-memes slider">
+      </div>  
+      <i class="arrow-right arrow fa fa-arrow-right" id="slide-right"></i>
+    </div>
+
     <div class="container">
       <div class="items">
         <label>Top text</label>
@@ -62,7 +74,7 @@
               class="top-text-stroke-color-picker"
               value="#000000"
               type="color"
-            />  
+            />
           </div>
         </div>
         <label>Bottom text</label>
@@ -70,33 +82,37 @@
           <input id="bottom-text" type="text" />
           <div class="tools">
             <input
-            class="bottom-text-color-picker"
-            value="#ffffff"
-            type="color"
-          />
-          <input
-            class="bottom-text-font-size text-font-size"
-            type="number"
-            value="55"
-          />
-          <input
-            class="bottom-text-stroke-color-picker"
-            value="#000000"
-            type="color"
-          />
+              class="bottom-text-color-picker"
+              value="#ffffff"
+              type="color"
+            />
+            <input
+              class="bottom-text-font-size text-font-size"
+              type="number"
+              value="55"
+            />
+            <input
+              class="bottom-text-stroke-color-picker"
+              value="#000000"
+              type="color"
+            />
           </div>
         </div>
         <button id="save-canvas-button">save as png</button>
       </div>
       <canvas id="c"></canvas>
     </div>
+
   </body>
 </html>
 
 <!-- TODO
+
+
 dark/light mode
-add slider handler
-refactor codes
+
 refactor random meme function
+
 show text boxes
+
 -->
