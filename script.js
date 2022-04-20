@@ -41,7 +41,7 @@ const getPopularMemes = async function () {
 
 const updateMemeCanvas = function (url, topTxt, bottomTxt) {
   canvas.clear();
-  addTopText(topTxt, topTextColor, topTextFontSize, topTextStrokeColor);
+  addTopText(topTxt,topTextColor,topTextFontSize,topTextStrokeColor);
   addBottomText(
     bottomTxt,
     bottomTextColor,
@@ -200,7 +200,7 @@ const renderPopularMemes = async function () {
   popularMemes.forEach((meme) => {
     const markUp = `<div data-id=${meme.id} class="slider-item">
         <img alt="" src=${meme.url}>
-        <span>${meme.name}</span>
+        <span class="meme-name">${meme.name}</span>
        </div>`;
     slider.insertAdjacentHTML("beforeend", markUp);
   });
@@ -208,22 +208,22 @@ const renderPopularMemes = async function () {
   slides = slider.children;
 };
 
-function autoPlay(slider, maxScrollLeft) {
-  if (slider.scrollLeft > maxScrollLeft - 1) {
-    slider.scrollLeft -= maxScrollLeft;
+function autoPlay(Slider,MaxScrollLeft) {
+  if (Slider.scrollLeft > MaxScrollLeft - 1) {
+    Slider.scrollLeft -= MaxScrollLeft;
   } else {
-    slider.scrollLeft += 1;
+    Slider.scrollLeft += 1;
   }
 }
 
-const pauseSlider = function (slider, slides, maxScrollLeft) {
-  for (let slide of slides) {
+const pauseSlider = function (Slider,Slides,MaxScrollLeft) {
+  for (let slide of Slides) {
     slide.addEventListener("mouseover", () => {
       clearInterval(play);
     });
     slide.addEventListener("mouseout", () => {
       play = setInterval(function () {
-        autoPlay(slider, maxScrollLeft);
+        autoPlay(Slider,MaxScrollLeft);
       }, 50);
       return play;
     });
@@ -339,3 +339,20 @@ const arrowRightMove = function (s,arrowR) {
 
 arrowLeftMove(slider, arrowLeft);
 arrowRightMove(slider, arrowRight);
+
+
+const options = {
+  bottom: '25px', // default: '32px'
+  right: 'unset', // default: '32px'
+  left: '32px', // default: 'unset'
+  time: '0.3s', // default: '0.3s'
+  mixColor: '#fff', // default: '#fff'
+  backgroundColor: '#fff',  // default: '#fff'
+  buttonColorDark: '#100f2c',  // default: '#100f2c'
+  buttonColorLight: '#fff', // default: '#fff'
+  saveInCookies: true, // default: true,
+  label: '🌓', // default: ''
+  autoMatchOsTheme: true // default: true
+}
+
+new Darkmode(options).showWidget();

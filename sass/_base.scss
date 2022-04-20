@@ -5,8 +5,10 @@ body {
   font-family: "Nunito", sans-serif;
 }
 
-body {
-  background-color: #000000; 
+.meme-generator-container {
+  background-color:$background-color-primary;
+  height:auto;
+  border:1px $background-color-primary solid;
 }
 
 *,
@@ -17,21 +19,23 @@ body {
   box-sizing: inherit;
 }
 
-
 *::-webkit-scrollbar {
-    width: 3px;
-    border-radius: 0.1rem;
-    height: 5px;
-    scroll-behavior: smooth !important;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background-color: #c9ada7;
-    border-radius: 10px;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background-color: #ff4a4a;
-    border-radius: 10px;
-  }
-  
+  width: 3px;
+  border-radius: 0.1rem;
+  height: 5px;
+  scroll-behavior: smooth !important;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: $box-shadow-color;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $color-primary;
+  border-radius: 10px;
+}
+
+button .darkmode-layer,.darkmode-toggle {
+  z-index: 500;
+}

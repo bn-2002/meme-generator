@@ -1,14 +1,17 @@
 .slider-container {
   position: relative;
-  width:90%;
-  margin:0 auto;
+  width: 90%;
+  margin:15px auto;
+  background-color:$background-color-secondary;
+  border-radius: 5px;
+  isolation: isolate;
 
   .slider-title {
     margin: 5px auto;
     text-align: center;
     padding: 10px;
     width: 95%;
-    color: #ff4a4a;
+    color:$color-secondary;
   }
 
   .slider {
@@ -19,9 +22,10 @@
     overflow-y: hidden;
     height: 250px;
     margin: 0px auto;
-    width:100%;
-    background-color: #000000;
+    width: 100%;
+    background-color: $background-color-secondary;
     font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+    isolation: isolate;
 
     & > * {
       margin: 5px;
@@ -36,43 +40,73 @@
       border-radius: 5px;
       justify-content: center;
       cursor: pointer;
-  
+
       img {
-          object-fit: cover;
-          height: 70%;
-          border-radius: 5px;
-        }
-        
-        span {
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          text-align: center;
-          margin: 5px;
-          color:#ffffff;
-        }
-    }  
+        object-fit: cover;
+        height: 70%;
+        border-radius: 5px;
+      }
+
+      .meme-name {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: center;
+        margin: 5px;
+        // color:$color-secondary;
+        margin-top:20px;
+        isolation: isolate;
+      }
+    }
   }
 
   .arrow {
-    position:absolute;
-    top:50%;
-    border-radius:50%;
-    padding:10px;
-    background-color: #de4141;
-    color: white;
+    position: absolute;
+    top: 50%;
+    border-radius: 50%;
+    padding: 10px;
+    background-color: $color-primary;
+    color: $text-color;
     cursor: pointer;
-    box-shadow: #c9ada7 0px 0px 0px 3px;
+    box-shadow: $box-shadow-color 0px 0px 0px 3px;
+    z-index: 10;
 
     &-left {
-      left:-25px;
+      left: -20px;
     }
-  
+
     &-right {
-      right:-25px;
-    }    
+      right: -20px;
+    }
   }
 }
 
-    
-  
+
+@media screen and (max-width:700px) {
+  .arrow {
+    display: none;
+    opacity: 0;
+  }
+}
+
+
+.darkmode--activated .slider-container{
+  background-color:$color-secondary;
+}
+
+.darkmode--activated .slider{
+  background-color:$color-secondary;
+}
+
+.darkmode--activated .slider-title{
+  color:$text-color;
+}
+
+.darkmode--activated .meme-name{
+  color:$text-color;
+}
+
+.darkmode--activated .arrow {
+  color:$color-secondary !important;
+}
+

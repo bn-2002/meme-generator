@@ -34,85 +34,82 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
     <script defer src="script.js"></script>
   </head>
   <body>
 
-    <header>
-      <h1>Make your own meme</h1>
-      <h2>Easily add text to images or memes</h2>
-      <div class="labels">
-        <label class="upload-file-label" for="image-file-input"
-          >upload image</label
-        >
-        <input id="image-file-input" type="file" />
-        <label class="random-meme-label">random meme</label>
-      </div>
-    </header>
+    <div class="meme-generator-container">
 
-    <div class="slider-container">
-      <h3 class="slider-title">pick from popular memes</h3>
-      <i class="arrow-left arrow fa fa-arrow-left" id="slide-left"></i>
-      <div class="popular-memes slider">
-      </div>  
-      <i class="arrow-right arrow fa fa-arrow-right" id="slide-right"></i>
-    </div>
-
-    <div class="container">
-      <div class="items">
-        <label>Top text</label>
-        <div class="text-tools-container">
-          <input id="top-text" type="text" />
-          <div class="tools">
-            <input class="top-text-color-picker" value="#ffffff" type="color" />
-            <input
-              class="top-text-font-size text-font-size"
-              type="number"
-              value="55"
-            />
-            <input
-              class="top-text-stroke-color-picker"
-              value="#000000"
-              type="color"
-            />
-          </div>
+      <header>
+        <h1>Make your own meme</h1>
+        <h2>Easily add text to images or memes</h2>
+        <div class="labels">
+          <label class="upload-file-label" for="image-file-input"
+            >upload image</label
+          >
+          <input id="image-file-input" type="file" />
+          <label class="random-meme-label">random meme</label>
         </div>
-        <label>Bottom text</label>
-        <div class="text-tools-container">
-          <input id="bottom-text" type="text" />
-          <div class="tools">
-            <input
-              class="bottom-text-color-picker"
-              value="#ffffff"
-              type="color"
-            />
-            <input
-              class="bottom-text-font-size text-font-size"
-              type="number"
-              value="55"
-            />
-            <input
-              class="bottom-text-stroke-color-picker"
-              value="#000000"
-              type="color"
-            />
-          </div>
-        </div>
-        <button id="save-canvas-button">save as png</button>
+      </header>
+  
+      <div class="slider-container">
+        <h3 class="slider-title">pick from popular memes</h3>
+        <i class="arrow-left arrow fa fa-arrow-left" id="slide-left"></i>
+        <div class="popular-memes slider"></div>
+        <i class="arrow-right arrow fa fa-arrow-right" id="slide-right"></i>
       </div>
-      <canvas id="c"></canvas>
+  
+      <div class="container">
+        <div class="items">
+          <label>Top text</label>
+          <div class="text-tools-container">
+            <input id="top-text" type="text" />
+            <div class="tools">
+              <input class="top-text-color-picker" value="#ffffff" type="color" />
+              <input
+                class="top-text-font-size text-font-size"
+                type="number"
+                value="55"
+              />
+              <input
+                class="top-text-stroke-color-picker"
+                value="#000000"
+                type="color"
+              />
+            </div>
+          </div>
+          <label>Bottom text</label>
+          <div class="text-tools-container">
+            <input id="bottom-text" type="text" />
+            <div class="tools">
+              <input
+                class="bottom-text-color-picker"
+                value="#ffffff"
+                type="color"
+              />
+              <input
+                class="bottom-text-font-size text-font-size"
+                type="number"
+                value="55"
+              />
+              <input
+                class="bottom-text-stroke-color-picker"
+                value="#000000"
+                type="color"
+              />
+            </div>
+          </div>
+          <button class="save-button" id="save-canvas-button">save as png</button>
+        </div>
+        <canvas id="c"></canvas>
+      </div>
+  
     </div>
-
   </body>
 </html>
 
 <!-- TODO
-
-
-dark/light mode
-
 refactor random meme function
-
 show text boxes
-
 -->

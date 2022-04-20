@@ -1,58 +1,85 @@
+header {
+  margin: 0;
+  padding: 0;
+  background-color:$background-color-secondary;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  h2 {
+    text-align: center;
+    z-index: 2;
+    font-weight: 900;
+    color:$color-secondary;
+    isolation:isolate;
+  }
+
+  h1{
+    color:$color-secondary;
+    isolation:isolate;
+  }
+
+  .labels > * {
+    margin: 10px;
+  }
+
+  #image-file-input {
+    display: none;
+    border-radius: 5px;
+  }
+
+  .upload-file-label,
+  .random-meme-label {
+    background-color: $color-primary;
+    color: $text-color;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 5px;
+    box-shadow: $box-shadow-color 0px 0px 0px 3px;
+    isolation: isolate;
+  }
+}
+
+@media screen and (max-width: 439px) {
   header {
-      margin: 0;
-      padding: 0;
-      background-color: #000000;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: space-evenly;
-      flex-direction: column;
-
-      & h1,h2 {
-        text-align: center;
-        z-index: 2;
-        font-weight: 900;
-        color: #ff4a4a;
-      }
-
-      .labels > * {
-        margin: 10px;
-      }
-      
-      #image-file-input {
-        display: none;
-        border-radius: 5px;
-      }
-      
-      .upload-file-label,
-      .random-meme-label {
-        background-color: #de4141;
-        color: white;
-        cursor: pointer;
-        padding: 8px;
-        border-radius: 5px;
-        box-shadow: #c9ada7 0px 0px 0px 3px;
-      }
-  }
-    
-  @media screen and (max-width:439px) { 
-    header {
-      padding:5px;
-      h1 {
-        font-size:22px;
-      };
-      h2 {
-        font-size:18px;
-      }    
+    padding: 5px;
+    h1 {
+      font-size: 22px;
     }
-  };  
-
-  @media screen and (max-width:310px) {
-    .labels>* {
-      display: flex;
-      flex-direction: row;
-    }
-    .labels > * {
-      margin:20px;
+    h2 {
+      font-size: 18px;
     }
   }
+}
+
+@media screen and (max-width: 310px) {
+  .labels > * {
+    display: flex;
+    flex-direction: row;
+  }
+  .labels > * {
+    margin: 20px;
+  }
+}
+
+
+.darkmode--activated header h1{
+  color:$text-color;
+}
+
+.darkmode--activated header h2{
+  color:$text-color;
+}
+
+
+.darkmode--activated .upload-file-label{
+  color:$color-secondary;
+  font-weight: 600;
+}
+
+.darkmode--activated .random-meme-label {
+  color:$color-secondary;
+  font-weight: 600;
+}

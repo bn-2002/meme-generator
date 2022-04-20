@@ -1,117 +1,121 @@
 .container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 90%;
+  margin: 30px auto;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 18px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-radius: 5px;
+  background-color: $background-color-secondary;
+  flex-wrap: wrap;
+
+  .items {
     display: flex;
-    flex-direction: row-reverse;
-    width: 95%;
-    margin: 30px auto;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    font-size: 18px;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-    border-radius: 5px;
-    background-color: #000000;
-    flex-wrap: wrap;
+    label {
+      color:$color-secondary;
+    }
+    & > * {
+      margin: 10px;
+    }
 
-    .items {
+    .text-tools-container {
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
       align-items: center;
-      label {
-        color: #ff4a4a;
-      }
-      &>* {
-        margin: 10px;
+      justify-content: center;
+
+      & > * {
+        margin-left: 5px;
+        margin-right: 5px;
+        margin: 5px;
       }
 
-      .text-tools-container {
+      .tools {
         display: flex;
         flex-direction: row;
-        flex-wrap:wrap;
-        align-items:center;
-        justify-content: center;
-      
-        &>* {
-          margin-left:5px;
-          margin-right:5px;
-          margin:5px;
-        }
-      
-        .tools {
-          display: flex;
-          flex-direction: row;
-      
-          &>* {
-            margin-left:5px;
-            margin-right:5px;
-          }
-        }
 
-        & input[type="color"] {
-          cursor: pointer;
-          -webkit-appearance: none;
-          border: none;
-          outline: none;
-        }
-
-        .text-font-size {
-          width: 50px;
-          font-size: 16px;
-          border: none;
-          outline: none;
-          border: 1px black solid;
+        & > * {
+          margin-left: 5px;
+          margin-right: 5px;
         }
       }
 
-      input[type="text"] {
-        outline: none;
-        border: none;
-        font-size: 14px;
-        font-weight: 600;
-        max-width: 300px;
-        width: 100%;
-        box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-        rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
-        padding:5px;
-      }
-      
-      input {
-        padding: 1px 5px;
-        border-radius: 3px;
-      }
-
-      #save-canvas-button {
-        color: white;
+      & input[type="color"] {
         cursor: pointer;
-        padding: 8px;
-        border-radius: 5px;
+        -webkit-appearance: none;
         border: none;
         outline: none;
-        background-color: #de4141;
-        font-size: 15px;
-        box-shadow: #c9ada7 0px 0px 0px 3px;
-      } 
+      }
+
+      .text-font-size {
+        width: 50px;
+        font-size: 16px;
+        border: none;
+        outline: none;
+        border: 1px $background-color-secondary solid;
+      }
     }
 
-    &>* {
-      margin: 8px;
+    input[type="text"] {
+      outline: none;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      max-width: 300px;
+      width: 100%;
+      box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+        rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+      padding: 5px;
     }
 
-    .lower-canvas {
-      width:100% !important;
-      height: 100% !important;
-      position: relative !important;  
+    input {
+      padding: 1px 5px;
+      border-radius: 3px;
     }
 
-    .upper-canvas {
-        width: 100% !important;
-        height: 100% !important;
-        position: absolute !important;
-    }
-
-    .canvas-container {
-        width:700px !important;
-        height: auto !important;
-        border-radius: 20px;
+    .save-button {
+      color: $text-color;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 5px;
+      border: none;
+      outline: none;
+      background-color: $color-primary;
+      font-size: 15px;
+      box-shadow: $box-shadow-color 0px 0px 0px 3px;
+      isolation: isolate;
     }
   }
-  
-  
+
+  & > * {
+    margin: 8px;
+  }
+
+  .lower-canvas {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative !important;
+  }
+
+  .upper-canvas {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+  }
+
+  .canvas-container {
+    width: 700px !important;
+    height: auto !important;
+    border-radius: 20px;
+  }
+}
+
+.darkmode--activated .save-button {
+  color:$color-secondary !important;
+  font-weight: 600;
+}
