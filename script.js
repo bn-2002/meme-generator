@@ -8,45 +8,13 @@ const colorPicker1 = document.querySelector(".top-text-color-picker");
 const colorPicker2 = document.querySelector(".bottom-text-color-picker");
 const fontSize1 = document.querySelector(".top-text-font-size");
 const fontSize2 = document.querySelector(".bottom-text-font-size");
-const strokeColorPicker1 = document.querySelector(
-  ".top-text-stroke-color-picker"
-);
-const strokeColorPicker2 = document.querySelector(
-  ".bottom-text-stroke-color-picker"
-);
+const strokeColorPicker1 = document.querySelector(".top-text-stroke-color-picker");
+const strokeColorPicker2 = document.querySelector(".bottom-text-stroke-color-picker");
 const c = document.querySelector("#c");
-
-let width,height;
-
-
-if(screen.width < 867) {
-  console.log(':/');
-  width = screen.width;
-  height = screen.width;
-} else {
-  width = 700;
-  height = 500;
-}
-
-
-if(screen.width < 867) {
-  console.log('pedasaggg :/ mobile');
-} else {
-  console.log('bozorg :/');
-  console.log(screen.width);
-}
-
-
-
-
-console.log('height : '  + height);
-console.log('width : ' + width);
-
 const canvas = new fabric.Canvas("c",{
-  width:width,
-  height:height,
+  height:500,
+  width:700,
 });
-
 let imgWidth, imgHeight, canvasWidth, canvasHeight;
 let topText, bottomText, img;
 let randomMemeUrl;
@@ -69,7 +37,7 @@ const getPopularMemes = async function () {
   }
 };
 
-const updateMemeCanvas = function (url, topTxt, bottomTxt) {
+const updateMemeCanvas = function (url,topTxt,bottomTxt) {
   canvas.clear();
   addTopText(topTxt, topTextColor, topTextFontSize, topTextStrokeColor);
   addBottomText(
@@ -239,7 +207,6 @@ const renderPopularMemes = async function () {
   slides = slider.children;
 };
 
-/////////////////////////////slider autoplay
 function autoPlay(slider, maxScrollLeft) {
   if (slider.scrollLeft > maxScrollLeft - 1) {
     slider.scrollLeft -= maxScrollLeft;
@@ -248,7 +215,6 @@ function autoPlay(slider, maxScrollLeft) {
   }
 }
 
-// /////////////////////////pause slider on hover
 const pauseSlider = function (slider, slides, maxScrollLeft) {
   for (let slide of slides) {
     slide.addEventListener("mouseover", () => {
@@ -356,11 +322,5 @@ const init = async function () {
   selectFromPopularMemes();
 
 };
-
-// setInterval(()=>{
-//   if(screen.width < 867) {
-//     console.log('hi :/ : ' + screen.width);
-//   }    
-// },2)
 
 init();

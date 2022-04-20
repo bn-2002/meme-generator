@@ -5,7 +5,7 @@ body {
 }
 
 body {
-  /* background-color: #000000; */
+  background-color: #000000;
 }
 
 *,
@@ -19,7 +19,7 @@ body {
 header {
   margin: 0;
   padding: 0;
-  background-color: #f2f2f2;
+  background-color: #000000;
   height: 300px;
   display: flex;
   align-items: center;
@@ -49,7 +49,7 @@ h2 {
   font-size: 18px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   border-radius: 5px;
-  background-color: #f2f2f2;
+  background-color: #000000;
   flex-wrap: wrap;
 }
 
@@ -115,7 +115,7 @@ input[type="text"] {
   height: 250px;
   margin: 0px auto;
   width: 95%;
-  background-color: #f2f2f2;
+  background-color: #000000;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
@@ -222,7 +222,21 @@ span {
   }
 }
 
-#c {
-  border: 2px red solid;
+.lower-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+}
+
+.upper-canvas {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+}
+
+.canvas-container {
+  width: 700px !important;
+  height: auto !important;
+  border-radius: 20px;
 }
 /*# sourceMappingURL=style.css.map */
