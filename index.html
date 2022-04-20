@@ -4,52 +4,90 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="icon" type="image/png"  href="https://iconape.com/wp-content/files/gf/155577/png/troll-face-logo.png">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link href="http://fonts.cdnfonts.com/css/lemonmilk" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://iconape.com/wp-content/files/gf/155577/png/troll-face-logo.png"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link href="http://fonts.cdnfonts.com/css/lemonmilk" rel="stylesheet" />
     <title>Meme Generator</title>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js" integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/521/fabric.min.js" integrity="sha512-nPzvcIhv7AtvjpNcnbr86eT6zGtiudLiLyVssCWLmvQHgR95VvkLX8mMpqNKWs1TG3Hnf+tvHpnGmpPS3yJIgw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.0/FileSaver.min.js"
+      integrity="sha512-csNcFYJniKjJxRWRV1R7fvnXrycHP6qDR21mgz1ZP55xY5d+aHLfo9/FcGDQLfn2IfngbAHd8LdfsagcCqgTcQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      defer
+      src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/521/fabric.min.js"
+      integrity="sha512-nPzvcIhv7AtvjpNcnbr86eT6zGtiudLiLyVssCWLmvQHgR95VvkLX8mMpqNKWs1TG3Hnf+tvHpnGmpPS3yJIgw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script defer src="script.js"></script>
   </head>
   <body>
     <header>
-        <h1>Make your own meme</h1>
-        <h2>Easily add text to images or memes</h2> 
-        <div class="labels">
-          <label class="upload-file-label" for="image-file-input">upload image</label>
-          <input id="image-file-input" type="file" />
-          <label class="random-meme-label">random meme</label>
-        </div>
+      <h1>Make your own meme</h1>
+      <h2>Easily add text to images or memes</h2>
+      <div class="labels">
+        <label class="upload-file-label" for="image-file-input"
+          >upload image</label
+        >
+        <input id="image-file-input" type="file" />
+        <label class="random-meme-label">random meme</label>
+      </div>
     </header>
     <h3 class="slider-title">pick from popular memes</h3>
-    <div class="popular-memes slider">
-    </div>
+    <div class="popular-memes slider"></div>
     <div class="container">
       <div class="items">
         <label>Top text</label>
         <div class="text-tools-container">
-          <input id="top-text" type="text"/>
-          <input class="top-text-color-picker" value="#ffffff" type="color">
-          <input class="top-text-font-size text-font-size" type="number" value="55"> 
-          <input class="top-text-stroke-color-picker" value="#000000" type="color">
+          <input id="top-text" type="text" />
+          <input class="top-text-color-picker" value="#ffffff" type="color" />
+          <input
+            class="top-text-font-size text-font-size"
+            type="number"
+            value="55"
+          />
+          <input
+            class="top-text-stroke-color-picker"
+            value="#000000"
+            type="color"
+          />
         </div>
         <label>Bottom text</label>
         <div class="text-tools-container">
           <input id="bottom-text" type="text" />
-          <input class="bottom-text-color-picker"  value="#ffffff" type="color">
-          <input class="bottom-text-font-size text-font-size" type="number" value="55"> 
-          <input class="bottom-text-stroke-color-picker" value="#000000" type="color">
+          <input
+            class="bottom-text-color-picker"
+            value="#ffffff"
+            type="color"
+          />
+          <input
+            class="bottom-text-font-size text-font-size"
+            type="number"
+            value="55"
+          />
+          <input
+            class="bottom-text-stroke-color-picker"
+            value="#000000"
+            type="color"
+          />
         </div>
         <button id="save-canvas-button">save as png</button>
       </div>
-       <canvas id="c"></canvas>
+      <canvas id="c"></canvas>
     </div>
-
   </body>
 </html>
-
 
 <!-- TODO
 dark/light mode

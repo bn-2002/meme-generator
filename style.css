@@ -1,54 +1,55 @@
 @import url("http://fonts.googleapis.com/css?family=Kavoon");
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
 
 body {
-    font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 body {
-    /* background-color: #000000; */
+  /* background-color: #000000; */
 }
 
 *,
 *::after,
 *::before {
-    margin: 0 ;
-    padding: 0;
-    box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 header {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   background-color: #f2f2f2;
-  height:300px;
+  height: 300px;
   display: flex;
   align-items: center;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   flex-direction: column;
 }
 
-header h1,h2 {
+header h1,
+h2 {
   text-align: center;
-  z-index:2;
+  z-index: 2;
   font-weight: 900;
-   color: #ff4a4a;
+  color: #ff4a4a;
 }
 
-.labels>* {
-  margin:10px;
+.labels > * {
+  margin: 10px;
 }
 
 .container {
   display: flex;
   flex-direction: row-reverse;
-  width:95%;
-  margin:30px auto;
+  width: 95%;
+  margin: 30px auto;
   align-items: center;
   justify-content: space-evenly;
   font-size: 18px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  border-radius:5px;
+  border-radius: 5px;
   background-color: #f2f2f2;
 }
 
@@ -58,8 +59,8 @@ header h1,h2 {
   align-items: center;
 }
 
-.items>* {
-  margin:10px;
+.items > * {
+  margin: 10px;
 }
 
 .text-tools-container {
@@ -68,10 +69,10 @@ header h1,h2 {
 }
 
 .text-tools-container input[type="color"] {
-  cursor:pointer;
+  cursor: pointer;
   -webkit-appearance: none;
-  border:none;
-  outline:none;
+  border: none;
+  outline: none;
 }
 
 .container > * {
@@ -90,18 +91,19 @@ input[type="file"] {
 input[type="text"] {
   outline: none;
   border: none;
-  font-size:14px;
+  font-size: 14px;
   font-weight: 600;
   max-width: 300px;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .slider-title {
-  margin:5px auto;
-  text-align:center;
-  padding:10px;
-  width:95%;
+  margin: 5px auto;
+  text-align: center;
+  padding: 10px;
+  width: 95%;
   color: #ff4a4a;
 }
 
@@ -109,23 +111,23 @@ input[type="text"] {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  overflow-x:auto;
+  overflow-x: auto;
   overflow-y: hidden;
-  height:250px;
-  margin:0px auto;
-  width:95%;
+  height: 250px;
+  margin: 0px auto;
+  width: 95%;
   background-color: #f2f2f2;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 
-.slider>* {
-  margin:5px;
+.slider > * {
+  margin: 5px;
 }
 
 .slider-item {
-  margin:15px;
-  max-width:10rem;
-  height:90%;
+  margin: 15px;
+  max-width: 10rem;
+  height: 90%;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -134,33 +136,33 @@ input[type="text"] {
 }
 
 img {
-  object-fit:cover;
-  height:70%;
+  object-fit: cover;
+  height: 70%;
   border-radius: 5px;
 }
 
 span {
-  white-space:nowrap;
+  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: center;
-  margin:5px;
+  margin: 5px;
 }
 
 *::-webkit-scrollbar {
-  width:3px;
-  border-radius: .1rem;
-  height:5px;
+  width: 3px;
+  border-radius: 0.1rem;
+  height: 5px;
   scroll-behavior: smooth !important;
 }
-   
+
 *::-webkit-scrollbar-track {
-  background-color:#c9ada7;
+  background-color: #c9ada7;
   border-radius: 10px;
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color:#9a8c98 ;
+  background-color: #9a8c98;
   border-radius: 10px;
 }
 
@@ -169,11 +171,12 @@ span {
   border-radius: 5px;
 }
 
-.upload-file-label,.random-meme-label {
+.upload-file-label,
+.random-meme-label {
   background-color: #de4141;
   color: white;
   cursor: pointer;
-  padding:8px;
+  padding: 8px;
   border-radius: 5px;
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
@@ -181,19 +184,19 @@ span {
 #save-canvas-button {
   color: white;
   cursor: pointer;
-  padding:8px;
+  padding: 8px;
   border-radius: 5px;
-  border:none;
-  outline:none;
+  border: none;
+  outline: none;
   background-color: #de4141;
   font-size: 15px;
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
 }
 
 .text-font-size {
-  width:50px;
-  font-size:16px;
-  border:none;
-  outline:none;
-  border:1px black solid;
+  width: 50px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  border: 1px black solid;
 }
