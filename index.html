@@ -31,12 +31,16 @@
         <label>Top text</label>
         <div class="text-tools-container">
           <input id="top-text" type="text"/>
-          <input class="color-picker1" type="color">
+          <input class="top-text-color-picker" value="#ffffff" type="color">
+          <input class="top-text-font-size text-font-size" type="number" value="55"> 
+          <input class="top-text-stroke-color-picker" value="#000000" type="color">
         </div>
         <label>Bottom text</label>
         <div class="text-tools-container">
           <input id="bottom-text" type="text" />
-          <input class="color-picker2" type="color">
+          <input class="bottom-text-color-picker"  value="#ffffff" type="color">
+          <input class="bottom-text-font-size text-font-size" type="number" value="55"> 
+          <input class="bottom-text-stroke-color-picker" value="#000000" type="color">
         </div>
         <button id="save-canvas-button">save as png</button>
       </div>
@@ -48,9 +52,10 @@
 
 
 <!-- TODO
-change font size and stroke color and font-family
 dark/light mode
 responsive 
 add slider handler
 refactor codes
+refactor random meme function
+show text boxes
 -->

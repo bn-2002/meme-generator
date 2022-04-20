@@ -4,8 +4,12 @@ const bottomTextInput = document.getElementById("bottom-text");
 const randomMemeBtn = document.querySelector('.random-meme-label');
 const saveCanvasBtn = document.querySelector('#save-canvas-button');
 const slider = document.querySelector('.slider');
-const colorPicker1 = document.querySelector('.color-picker1');
-const colorPicker2 = document.querySelector('.color-picker2');
+const colorPicker1 = document.querySelector('.top-text-color-picker');
+const colorPicker2 = document.querySelector('.bottom-text-color-picker');
+const fontSize1 = document.querySelector('.top-text-font-size');
+const fontSize2 = document.querySelector('.bottom-text-font-size');
+const strokeColorPicker1 = document.querySelector('.top-text-stroke-color-picker');
+const strokeColorPicker2 = document.querySelector('.bottom-text-stroke-color-picker');
 const c = document.querySelector('#c');
 const canvas = new fabric.Canvas('c');
 let imgWidth,imgHeight,canvasWidth,canvasHeight;
@@ -15,6 +19,8 @@ let popularMemes = [];
 let maxScrollLeft;
 let slides;
 let topTextColor,bottomTextColor;
+let topTextFontSize,bottomTextFontSize;
+let topTextStrokeColor,bottomTextStrokeColor;
 
 const getPopularMemes = async function() {
     try {
@@ -30,8 +36,8 @@ const getPopularMemes = async function() {
 
 const updateMemeCanvas = function(url,topTxt,bottomTxt) {
     canvas.clear();
-    addTopText(topTxt,topTextColor);
-    addBottomText(bottomTxt,bottomTextColor)
+    addTopText(topTxt,topTextColor,topTextFontSize,topTextStrokeColor);
+    addBottomText(bottomTxt,bottomTextColor,bottomTextFontSize,bottomTextStrokeColor);
     addImage(url);
 }
 
@@ -44,9 +50,8 @@ const addImage = function(url){
         image.lockMovementX = true; 
         image.lockMovementY = true;
         image.selectable = false;
-        img.setAttribute("crossOrigin",'Anonymous')
         canvas.sendToBack(image);
-    },{crossOrigin: 'anonymous'})    
+    },{crossOrigin: 'anonymous'});
 }
 
 const fitImageSize = function(image) {
@@ -68,13 +73,19 @@ const fitImageSize = function(image) {
     }
 };
 
-const addTopText = function(topTxt,fillColor='black'){
+const addTopText = function(topTxt,fillColor='white',fontSize = '55',strokeColor = 'black'){
+
+    if (+(fontSize) <= 0) {
+        alert('please enter valid amount');
+        fontSize = 55;
+    }
+
     topText = new fabric.Text(topTxt,{
         paintFirst: "stroke",
         fill: fillColor,
         strokeWidth:4,
-        stroke: 'white',
-        fontSize : 55,
+        stroke: strokeColor,
+        fontSize : +(fontSize),
         fontFamily:'sans-serif',
         left:canvasWidth/2,
         top:canvasHeight/50,
@@ -83,13 +94,19 @@ const addTopText = function(topTxt,fillColor='black'){
     canvas.bringToFront(topText);
 }
 
-const addBottomText = function(BottomTxt,fillColor='black'){
+const addBottomText = function(BottomTxt,fillColor='white',fontSize ='55',strokeColor = 'black') {
+
+    if (+(fontSize) <= 0) {
+        alert('please enter valid amount');
+        fontSize = 55;
+    }
+
     bottomText = new fabric.Text(BottomTxt,{
         paintFirst: "stroke",
         fill:fillColor,
         strokeWidth:4,
-        stroke: 'black',
-        fontSize : 55,
+        stroke: strokeColor,
+        fontSize :fontSize,
         fontFamily:'sans-serif',
         left:canvasWidth/2,
         top:canvasHeight - canvasHeight/4,
@@ -121,12 +138,12 @@ imageFileInput.addEventListener("change", function (e) {
   
 topTextInput.addEventListener('keyup',() => {
     canvas.remove(topText);
-    addTopText(topTextInput.value,topTextColor)
+    addTopText(topTextInput.value,topTextColor,topTextFontSize,topTextStrokeColor)
 });
 
 bottomTextInput.addEventListener('keyup',() => {
     canvas.remove(bottomText);
-    addBottomText(bottomTextInput.value,bottomTextColor)
+    addBottomText(bottomTextInput.value,bottomTextColor,bottomTextFontSize,bottomTextStrokeColor)
 });
 
 randomMemeBtn.addEventListener('click', async function() {
@@ -140,7 +157,6 @@ randomMemeBtn.addEventListener('click', async function() {
 
 const renderPopularMemes = async function() {
     await getPopularMemes();
-    console.log(popularMemes);
     popularMemes.forEach(meme => {
         const markUp = `<div data-id=${meme.id} class="slider-item">
         <img alt="" src=${meme.url}>
@@ -201,14 +217,39 @@ const selectFromPopularMemes = function() {
 colorPicker1.addEventListener("change",function() {
     topTextColor = colorPicker1.value;
     canvas.remove(topText);
-    addTopText(topTextInput.value,topTextColor)
+    addTopText(topTextInput.value,topTextColor,topTextFontSize,topTextStrokeColor)
 });
 
 
 colorPicker2.addEventListener("change",function() {
     bottomTextColor = colorPicker2.value;
     canvas.remove(bottomText);
-    addBottomText(bottomTextInput.value,bottomTextColor)
+    addBottomText(bottomTextInput.value,bottomTextColor,bottomTextStrokeColor)
+});
+
+fontSize1.addEventListener('change',function(){
+    topTextFontSize = fontSize1.value;
+    canvas.remove(topText);
+    addTopText(topTextInput.value,topTextColor,topTextFontSize,topTextStrokeColor)
+});
+
+fontSize2.addEventListener('change',function(){
+    bottomTextFontSize = fontSize2.value;
+    canvas.remove(bottomText);
+    addBottomText(bottomTextInput.value,bottomTextColor,bottomTextFontSize,bottomTextStrokeColor)
+});
+
+strokeColorPicker1.addEventListener("change",function() {
+    topTextStrokeColor = strokeColorPicker1.value;
+    canvas.remove(topText);
+    addTopText(topTextInput.value,topTextColor,topTextFontSize,topTextStrokeColor)
+});
+
+
+strokeColorPicker2.addEventListener("change",function() {
+    bottomTextStrokeColor = strokeColorPicker1.value;
+    canvas.remove(bottomText);
+    addBottomText(bottomTextInput.value,bottomTextColor,bottomTextFontSize,bottomTextStrokeColor)
 });
 
 const init = async function() {
@@ -218,4 +259,3 @@ const init = async function() {
 }
 
 init();
-
