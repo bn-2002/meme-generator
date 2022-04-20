@@ -51,6 +51,7 @@ h2 {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   border-radius: 5px;
   background-color: #f2f2f2;
+  flex-wrap: wrap;
 }
 
 .items {
@@ -96,7 +97,7 @@ input[type="text"] {
   max-width: 300px;
   width: 100%;
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
-    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
 }
 
 .slider-title {
@@ -200,3 +201,37 @@ span {
   outline: none;
   border: 1px black solid;
 }
+
+
+   @media screen and (max-width:439px) { 
+
+    header {
+      padding:5px;
+
+      h1 {
+        font-size:22px;
+      };
+
+      h2 {
+        font-size:18px;
+      }    
+    }
+   };  
+
+
+   @media screen and (max-width:310px) {
+    .labels>* {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .labels > * {
+      margin:20px;
+    }
+
+   }
+
+
+   #c {
+     border:2px red solid;
+   }

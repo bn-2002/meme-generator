@@ -15,7 +15,38 @@ const strokeColorPicker2 = document.querySelector(
   ".bottom-text-stroke-color-picker"
 );
 const c = document.querySelector("#c");
-const canvas = new fabric.Canvas("c");
+
+let width,height;
+
+
+if(screen.width < 867) {
+  console.log(':/');
+  width = screen.width;
+  height = screen.width;
+} else {
+  width = 700;
+  height = 500;
+}
+
+
+if(screen.width < 867) {
+  console.log('pedasaggg :/ mobile');
+} else {
+  console.log('bozorg :/');
+  console.log(screen.width);
+}
+
+
+
+
+console.log('height : '  + height);
+console.log('width : ' + width);
+
+const canvas = new fabric.Canvas("c",{
+  width:width,
+  height:height,
+});
+
 let imgWidth, imgHeight, canvasWidth, canvasHeight;
 let topText, bottomText, img;
 let randomMemeUrl;
@@ -54,7 +85,7 @@ const addImage = function (url) {
   fabric.Image.fromURL(
     url,
     function (image) {
-      canvas.setDimensions({ width: 800, height: 500 });
+
       fitImageSize(image);
       canvas.add(image);
       image.center();
@@ -323,6 +354,13 @@ const init = async function () {
   await renderPopularMemes();
   pauseSlider(slider, slides, maxScrollLeft);
   selectFromPopularMemes();
+
 };
+
+// setInterval(()=>{
+//   if(screen.width < 867) {
+//     console.log('hi :/ : ' + screen.width);
+//   }    
+// },2)
 
 init();
